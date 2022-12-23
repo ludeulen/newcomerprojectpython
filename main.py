@@ -1,6 +1,7 @@
 from flask import Flask
-import consumption
 import mysql
+import openapi
+
 
 app = Flask(__name__)
 
@@ -8,9 +9,9 @@ app = Flask(__name__)
 def home():
     return 'Hello, World!'
 
-@app.route('/consumer')
-def consumer():
-    return mysql.consumer()
+@app.route('/update')
+def update():
+    return 'null'
 
 if __name__ == '__main__':
     app.run(port=8000)

@@ -2,6 +2,7 @@ import json
 import pandas as pd
 import requests
 
+
 def consumer_spending():
     url = 'https://kosis.kr/openapi/Param/statisticsParameterData.do?method=getList&apiKey=MTc0MDVmNDdhNTYyOWQ1MWU0NTYzYmNhOWQ3ODEyMGQ=&itmId=T1+T2+T3+T4+&objL1=ALL&objL2=&objL3=&objL4=&objL5=&objL6=&objL7=&objL8=&format=json&jsonVD=Y&prdSe=Y&newEstPrdCnt=10&orgId=101&tblId=DT_1C86'
 
@@ -18,7 +19,5 @@ def consumer_spending():
     df = df[df['ITM_NM'] == '1인당 민간소비']
     df.drop('ITM_NM', axis=1, inplace=True)
     df.reset_index(inplace=True)
-    df.drop('index',axis=1,inplace=True)
+    df.drop('index', axis=1, inplace=True)
     return df
-
-print(consumer_spending())
