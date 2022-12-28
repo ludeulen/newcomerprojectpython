@@ -1,7 +1,4 @@
 from flask import Flask
-import mysql
-import openapi
-
 
 app = Flask(__name__)
 
