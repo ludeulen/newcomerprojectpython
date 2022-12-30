@@ -6,7 +6,7 @@ import usefulcode
 import os
 
 
-def food_waste():
+def food_waste_2018_2021():
     year = ['2018', '2019', '2020', '2021']
     month = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
     code = {'W01', 'W02', 'W03', 'W04', 'W05', 'W06', 'W07', 'W08', 'W09', 'W0A', 'W0B', 'W0C', 'W0D', 'W0E', 'W0F',
@@ -61,15 +61,14 @@ def food_waste():
             df_month = pd.concat(list_df)
             df_month.to_csv('./Data/Food_waste/Food_waste_' + y + '_' + m + '.csv', encoding='cp949')
 
-    return "호출 완료"
+    return "저장 성공"
 
 
-def merge_food_waste():
-
+def df_food_waste():
     list_df = []
     file_list = os.listdir('./Data/Food_waste')
     for f in file_list:
-        df = pd.read_csv('./Food_waste/' + f, encoding='cp949')
+        df = pd.read_csv('./Data/Food_waste/' + f, encoding='cp949')
         list_df.append(df)
 
     df_total = pd.concat(list_df)
