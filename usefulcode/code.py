@@ -22,5 +22,12 @@ def Base36(code):
     return Base10
 
 
-def waiting_time():
-    return "잠시 기다려주세요"
+def outlier(df):
+    quantity = df['disQuantity']
+
+    if quantity > q3 + 1.5 * iqr or quantity < q1 - 1.5 * iqr:
+        return True
+    else:
+        return False
+
+
