@@ -7,7 +7,7 @@ import usefulcode.code as uc
 def CSI():
     uc.make_dirs('./Data/CSI')
     # 서울을 뺀 나머지 지역
-    url = "https://ecos.bok.or.kr/api/StatisticSearch/KIPUD3Q933N1288BVJZ8/json/kr/1/99999/511Y004/M/201501/202209/FMCA"
+    url = "https://ecos.bok.or.kr/api/StatisticSearch/KIPUD3Q933N1288BVJZ8/json/kr/1/99999/511Y004/M/201501/202210/FMCA"
     response = requests.get(url)
     result = json.loads(response.text)
 
@@ -15,7 +15,7 @@ def CSI():
     df.dropna(axis=1, inplace=True)
     df['ID'] = df['TIME'] + df['ITEM_NAME2']
 
-    url = "https://ecos.bok.or.kr/api/StatisticSearch/KIPUD3Q933N1288BVJZ8/json/kr/1/99999/511Y004/M/201501/202209/FMCB"
+    url = "https://ecos.bok.or.kr/api/StatisticSearch/KIPUD3Q933N1288BVJZ8/json/kr/1/99999/511Y004/M/201501/202210/FMCB"
     response = requests.get(url)
 
     result = json.loads(response.text)
@@ -29,7 +29,7 @@ def CSI():
     df_csi = pd.merge(df, df1, how='left', on='ID')
 
     # 지역 서울
-    url = "https://ecos.bok.or.kr/api/StatisticSearch/KIPUD3Q933N1288BVJZ8/json/kr/1/99999/511Y002/M/201501/202209/FMCA/F0001"
+    url = "https://ecos.bok.or.kr/api/StatisticSearch/KIPUD3Q933N1288BVJZ8/json/kr/1/99999/511Y002/M/201501/202210/FMCA/F0001"
     response = requests.get(url)
     result = json.loads(response.text)
 
@@ -37,7 +37,7 @@ def CSI():
     df2.dropna(axis=1, inplace=True)
     df2['ID'] = df2['TIME'] + df2['ITEM_NAME2']
 
-    url = "https://ecos.bok.or.kr/api/StatisticSearch/KIPUD3Q933N1288BVJZ8/json/kr/1/99999/511Y002/M/201501/202209/FMCB/F0001"
+    url = "https://ecos.bok.or.kr/api/StatisticSearch/KIPUD3Q933N1288BVJZ8/json/kr/1/99999/511Y002/M/201501/202210/FMCB/F0001"
     response = requests.get(url)
 
     result = json.loads(response.text)
@@ -85,5 +85,5 @@ def CSI():
 
 def df_CSI():
 
-    df = pd.read_csv('./Data/CSI/CSI.csv', encoding='cp949')
+    df = pd.read_csv('./Data/CSI/CSI.csv', encoding='cp949', index_col=0)
     return df

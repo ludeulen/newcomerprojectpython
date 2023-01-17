@@ -22,7 +22,7 @@ def living_waste_2014_2018():
         df['year'] = y
         df.to_csv('./Data/living_waste/living_waste_' + y + '.csv', encoding='cp949')
 
-    return '저장 완료'
+    return '18년까지 저장완료'
 
 
 def living_waste2019():
@@ -40,7 +40,7 @@ def living_waste2019():
 
     df.to_csv('./Data/living_waste/living_waste_2019.csv', encoding='cp949')
 
-    return '저장 완료'
+    return '19년까지 저장 완료'
 
 
 def living_waste2020():
@@ -65,7 +65,7 @@ def df_living_waste():
     list_df = []
     file_list = os.listdir('./Data/living_waste')
     for f in file_list:
-        df = pd.read_csv('./Data/living_waste/' + f, encoding='cp949')
+        df = pd.read_csv('./Data/living_waste/' + f, encoding='cp949', index_col=0)
         list_df.append(df)
 
     df_total = pd.concat(list_df)

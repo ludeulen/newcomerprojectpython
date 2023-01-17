@@ -113,7 +113,7 @@ def df_food_waste():
     list_df = []
     file_list = os.listdir('./Data/Food_waste')
     for f in file_list:
-        df = pd.read_csv('./Data/Food_waste/' + f, encoding='cp949')
+        df = pd.read_csv('./Data/Food_waste/' + f, encoding='cp949', index_col=0)
         list_df.append(df)
 
     df_total = pd.concat(list_df)
