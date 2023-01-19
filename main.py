@@ -5,6 +5,7 @@ import openapi.living_waste as ol
 import openapi.CSI as oc
 import usefulcode.mysql as um
 
+
 app = Flask(__name__)
 
 
