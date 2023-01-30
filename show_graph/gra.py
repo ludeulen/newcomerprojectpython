@@ -3,7 +3,7 @@ from dash import dcc
 from dash import html
 import plotly.express as px
 import openapi.Food_waste as of
-import graph.food_graph as gf
+import graph.graph_preprocessing as gf
 
 app = dash.Dash(__name__)
 
